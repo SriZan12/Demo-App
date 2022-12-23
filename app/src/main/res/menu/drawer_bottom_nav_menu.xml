@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item
+        android:id="@+id/fragmentAnyJokes"
+        android:icon="@drawable/ic_baseline_emoji_emotions_24"
+        android:title="Any"/>
+
+    <item
+        android:id="@+id/fragmentProgrammingJokes"
+        android:icon="@drawable/ic_baseline_code_24"
+        android:title="Programming"/>
+
+    <item
+        android:id="@+id/fragmentMiscJokes"
+        android:icon="@drawable/ic_baseline_subject_24"
+        android:title="Misc"/>
+
+</menu>
