@@ -1,5 +1,6 @@
-package com.example.demoproject.ui.fragments
+package com.example.demoproject.ui
 
+import android.app.Application
 import android.content.Context
 import android.net.ConnectivityManager
 import android.os.Bundle
@@ -13,7 +14,6 @@ import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.findNavController
 import com.example.demoproject.R
 import com.example.demoproject.databinding.FragmentAnyJokesBinding
-import com.example.demoproject.ui.activities.adapter.AllJokesAdapter
 import com.example.demoproject.view_model.JokesViewModel
 import com.example.demoproject.view_model.OfflineJokesViewModel
 import dagger.hilt.android.AndroidEntryPoint
@@ -50,7 +50,7 @@ class FragmentAnyJokes : Fragment(R.layout.fragment_any_jokes) {
 
         if (!result) {
 
-            offlineJokesViewModel.initializeDatabase(requireContext())
+            offlineJokesViewModel.initializeDatabase(requireContext() as Application)
 
             offlineJokesViewModel.getJokesList().observe(viewLifecycleOwner) {
             }

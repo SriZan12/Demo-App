@@ -46,6 +46,9 @@ dependencies {
     def nav_version = "2.5.3"
     def lifecycle_version = "2.4.0"
     def okHttp_version = '5.0.0-alpha.3'
+    //Android Room
+    def room_version = "2.4.3"
+
 
     implementation 'androidx.core:core-ktx:1.7.0'
     implementation 'androidx.appcompat:appcompat:1.5.1'
@@ -66,15 +69,9 @@ dependencies {
     // ViewModel and LiveData
     implementation "androidx.lifecycle:lifecycle-extensions:2.2.0"
 
-    //New Material Design
-    implementation 'com.google.android.material:material:1.8.0-beta01'
-
     //Kodein Dependency Injection
     implementation "org.kodein.di:kodein-di-generic-jvm:6.2.1"
     implementation "org.kodein.di:kodein-di-framework-android-x:6.2.1"
-
-    //Android Room
-    def room_version = "2.4.3"
 
     implementation "androidx.room:room-runtime:$room_version"
     kapt "androidx.room:room-compiler:$room_version"
@@ -84,10 +81,6 @@ dependencies {
     // To use Kotlin annotation processing tool (kapt)
     kapt "androidx.room:room-compiler:$room_version"
 
-
-//    Dagger Dependency
-    implementation 'com.google.dagger:dagger:2.44.2'
-    kapt 'com.google.dagger:dagger-compiler:2.44.2'
 
 //    Jetpack Navigation Dependency
     implementation "androidx.navigation:navigation-fragment-ktx:$nav_version"
@@ -101,7 +94,5 @@ dependencies {
 //    Hilt Dependency
     implementation "com.google.dagger:hilt-android:2.44"
     kapt "com.google.dagger:hilt-compiler:2.44"
-
-    implementation 'com.google.code.gson:gson:2.10'
 
 }

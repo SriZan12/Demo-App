@@ -1,26 +1,32 @@
-package com.example.demoproject.api_network
-
+package com.example.demoproject.di
 
 import android.util.Log
-import com.example.demoproject.Objects.Constants
 import com.example.demoproject.BuildConfig
+import com.example.demoproject.objects.Constants
+import com.example.demoproject.api_network.ApiInterface
+import dagger.Module
+import dagger.Provides
+import dagger.hilt.InstallIn
+import dagger.hilt.components.SingletonComponent
 import okhttp3.OkHttpClient
 import okhttp3.logging.HttpLoggingInterceptor
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
-import javax.inject.Inject
 
-class RetrofitInstance @Inject constructor() {
+@Module
+@InstallIn(SingletonComponent::class)
+object NetworkModule {
+    private const val TAG = "Retrofit"
 
-    private lateinit var retrofit: Retrofit
-    private val TAG = "Retrofit"
-
-    fun getRetrofitInstance(): Retrofit {
-        retrofit = Retrofit.Builder().client(OkHttpClient.Builder().addInterceptor(provideHttpLoggingInterceptor()).build())
+    @Provides
+    fun getRetrofitInstance(): ApiInterface {
+        return Retrofit.Builder()
+            .client(OkHttpClient.Builder().addInterceptor(provideHttpLoggingInterceptor()).build())
             .baseUrl(Constants.BASE_URL)
             .addConverterFactory(GsonConverterFactory.create())
             .build()
-        return retrofit
+            .create(ApiInterface::class.java)
+
     }
 
     private fun provideHttpLoggingInterceptor(): HttpLoggingInterceptor {
@@ -31,5 +37,4 @@ class RetrofitInstance @Inject constructor() {
             if (BuildConfig.DEBUG) HttpLoggingInterceptor.Level.BODY else HttpLoggingInterceptor.Level.NONE
         return httpLoggingInterceptor
     }
-
 }

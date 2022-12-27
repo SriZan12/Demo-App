@@ -1,4 +1,4 @@
-package com.example.demoproject.ui.fragments
+package com.example.demoproject.ui
 
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -10,13 +10,12 @@ import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.findNavController
 import com.example.demoproject.R
 import com.example.demoproject.databinding.FragmentMiscJokesBinding
-import com.example.demoproject.ui.activities.adapter.AllJokesAdapter
 import com.example.demoproject.view_model.JokesViewModel
 import dagger.hilt.android.AndroidEntryPoint
 import javax.inject.Inject
 
 @AndroidEntryPoint
-class FragmentMiscJokes: Fragment(R.layout.fragment_misc_jokes) {
+class FragmentMiscJokes : Fragment(R.layout.fragment_misc_jokes) {
 
     private lateinit var fragmentMiscJokesBinding: FragmentMiscJokesBinding
 
@@ -32,16 +31,16 @@ class FragmentMiscJokes: Fragment(R.layout.fragment_misc_jokes) {
     ): View {
 
         fragmentMiscJokesBinding =
-            DataBindingUtil.inflate(inflater,R.layout.fragment_misc_jokes,container,false)
+            DataBindingUtil.inflate(inflater, R.layout.fragment_misc_jokes, container, false)
         return fragmentMiscJokesBinding.root
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        jokesViewModel.getMiscJokes().observe(viewLifecycleOwner){
+        jokesViewModel.getMiscJokes().observe(viewLifecycleOwner) {
 
-            if(it.jokesList != null) {
+            if (it.jokesList != null) {
                 allJokesAdapter.setJokesList(it.jokesList)
             }
             fragmentMiscJokesBinding.miscJokesRecyclerView.setHasFixedSize(true)
@@ -49,7 +48,8 @@ class FragmentMiscJokes: Fragment(R.layout.fragment_misc_jokes) {
         }
 
         fragmentMiscJokesBinding.gotoAny.setOnClickListener {
-            val action = FragmentMiscJokesDirections.actionFragmentMiscJokesToFragmentAnyJokes()
+            val action =
+                FragmentMiscJokesDirections.actionFragmentMiscJokesToFragmentAnyJokes()
             findNavController().navigate(action)
         }
     }

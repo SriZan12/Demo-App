@@ -1,4 +1,4 @@
-package com.example.demoproject.ui.activities.adapter
+package com.example.demoproject.ui
 
 import android.annotation.SuppressLint
 import android.view.LayoutInflater

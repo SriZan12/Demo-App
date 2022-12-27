@@ -1,5 +1,6 @@
 package com.example.demoproject.database
 
+import android.app.Application
 import android.content.Context
 import androidx.room.Database
 import androidx.room.Room
@@ -20,11 +21,11 @@ abstract class JokesDatabase : RoomDatabase() {
         @Volatile
         private var Instance: JokesDatabase? = null
 
-        fun getDatabase(context: Context): JokesDatabase {
+        fun getDatabase(application: Application): JokesDatabase {
             if (Instance == null) {
                 kotlin.synchronized(this) {
                     Instance = Room.databaseBuilder(
-                        context.applicationContext,
+                        application.applicationContext,
                         JokesDatabase::class.java, "Jokes_Table"
                     ).build()
                 }

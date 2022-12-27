@@ -7,7 +7,7 @@
 
     <fragment
         android:id="@+id/fragmentAnyJokes"
-        android:name="com.example.demoproject.ui.fragments.FragmentAnyJokes"
+        android:name="com.example.demoproject.ui.FragmentAnyJokes"
         android:label="Any Jokes"
         tools:layout="@layout/fragment_any_jokes">
         <action
@@ -20,7 +20,7 @@
     </fragment>
     <fragment
         android:id="@+id/fragmentMiscJokes"
-        android:name="com.example.demoproject.ui.fragments.FragmentMiscJokes"
+        android:name="com.example.demoproject.ui.FragmentMiscJokes"
         android:label="Misc Jokes"
         tools:layout="@layout/fragment_misc_jokes">
         <action
@@ -35,7 +35,7 @@
     </fragment>
     <fragment
         android:id="@+id/fragmentProgrammingJokes"
-        android:name="com.example.demoproject.ui.fragments.FragmentProgrammingJokes"
+        android:name="com.example.demoproject.ui.FragmentProgrammingJokes"
         android:label="Programming Jokes"
         tools:layout="@layout/fragment_programming_jokes">
         <action

@@ -1,8 +1,8 @@
 package com.example.demoproject.view_model
 
-import android.content.Context
+import android.app.Application
+import androidx.lifecycle.AndroidViewModel
 import androidx.lifecycle.LiveData
-import androidx.lifecycle.ViewModel
 import androidx.lifecycle.liveData
 
 import com.example.demoproject.api_network.jokedto.JokesSecondaryModel
@@ -11,19 +11,21 @@ import dagger.hilt.android.lifecycle.HiltViewModel
 import javax.inject.Inject
 
 @HiltViewModel
-class OfflineJokesViewModel @Inject constructor() : ViewModel() {
+class OfflineJokesViewModel @Inject constructor(application: Application) : AndroidViewModel(
+    application
+) {
 
     @Inject
     lateinit var offlineJokesRepository: OfflineJokesRepository
 
-    fun initializeDatabase(context: Context){
-        offlineJokesRepository.initializeDatabase(context)
+    fun initializeDatabase(application: Application) {
+        offlineJokesRepository.initializeDatabase(application)
     }
 
     fun getJokesList() = liveData {
         try {
             emit(offlineJokesRepository.saveTheJokes())
-        }catch (exception:Exception){
+        } catch (exception: Exception) {
             exception.message
         }
     }
