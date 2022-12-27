@@ -7,7 +7,6 @@ import android.view.ViewGroup
 import androidx.databinding.DataBindingUtil
 import androidx.recyclerview.widget.RecyclerView
 import com.example.demoproject.R
-import com.example.demoproject.api_network.jokedto.JokesSecondaryModel
 
 import com.example.demoproject.databinding.JokesCategoryBinding
 import javax.inject.Inject

@@ -1,6 +1,6 @@
-package com.example.demoproject.api_network
+package com.example.demoproject.data
 
-import com.example.demoproject.api_network.jokedto.JokesMainModel
+import com.example.demoproject.data.models.JokesMainModel
 import retrofit2.http.GET
 import retrofit2.http.Query
 
