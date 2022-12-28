@@ -1,9 +1,9 @@
 package com.example.demoproject.di
 
 import android.util.Log
-import com.example.demoproject.BuildConfig
+import androidx.databinding.ktx.BuildConfig
 import com.example.demoproject.objects.Constants
-import com.example.demoproject.api_network.ApiInterface
+import com.example.demoproject.data.remote.ApiInterface
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn

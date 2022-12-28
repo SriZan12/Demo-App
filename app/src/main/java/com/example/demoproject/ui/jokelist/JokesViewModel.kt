@@ -1,9 +1,11 @@
-package com.example.demoproject.view_model
+package com.example.demoproject.ui.jokelist
 
 
 import android.util.Log
+import androidx.lifecycle.LiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.liveData
+import com.example.demoproject.data.models.JokesMainModel
 import com.example.demoproject.repository.JokesRepository
 import dagger.hilt.android.lifecycle.HiltViewModel
 import javax.inject.Inject
@@ -51,6 +53,19 @@ class JokesViewModel @Inject constructor() : ViewModel() {
             exception.printStackTrace()
         }
     }
+
+    fun getJokesList() = liveData {
+        try {
+            emit(jokesRepository.saveTheJokes())
+        } catch (exception: Exception) {
+            exception.message
+        }
+    }
+
+    fun getSavedJokes(): LiveData<List<JokesMainModel.JokesSecondaryModel>> {
+        return jokesRepository.getSavedJokes()
+    }
+
 
 }
 

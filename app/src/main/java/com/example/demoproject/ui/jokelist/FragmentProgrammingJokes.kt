@@ -1,4 +1,4 @@
-package com.example.demoproject.ui
+package com.example.demoproject.ui.jokelist
 
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -10,7 +10,6 @@ import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.findNavController
 import com.example.demoproject.R
 import com.example.demoproject.databinding.FragmentProgrammingJokesBinding
-import com.example.demoproject.view_model.JokesViewModel
 import dagger.hilt.android.AndroidEntryPoint
 import javax.inject.Inject
 

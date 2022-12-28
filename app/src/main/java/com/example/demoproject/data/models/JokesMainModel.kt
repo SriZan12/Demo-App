@@ -1,4 +1,4 @@
-package com.example.demoproject.api_network.jokedto
+package com.example.demoproject.data.models
 
 
 import androidx.room.Entity

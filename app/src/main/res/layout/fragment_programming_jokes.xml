@@ -7,7 +7,7 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         xmlns:tools="http://schemas.android.com/tools"
-        tools:context=".ui.FragmentProgrammingJokes">
+        tools:context=".ui.jokelist.FragmentProgrammingJokes">
 
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/ProgrammingJokesRecyclerView"

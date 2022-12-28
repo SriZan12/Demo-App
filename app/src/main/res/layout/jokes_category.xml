@@ -5,7 +5,7 @@
     <data>
         <variable
             name="jokes"
-            type="com.example.demoproject.api_network.jokedto.JokesMainModel" />
+            type="com.example.demoproject.data.models.JokesMainModel" />
     </data>
 
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"

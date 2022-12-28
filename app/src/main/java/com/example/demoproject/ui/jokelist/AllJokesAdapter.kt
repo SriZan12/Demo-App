@@ -1,4 +1,4 @@
-package com.example.demoproject.ui
+package com.example.demoproject.ui.jokelist
 
 import android.annotation.SuppressLint
 import android.view.LayoutInflater
@@ -7,17 +7,18 @@ import android.view.ViewGroup
 import androidx.databinding.DataBindingUtil
 import androidx.recyclerview.widget.RecyclerView
 import com.example.demoproject.R
-
+import com.example.demoproject.data.models.JokesMainModel
 import com.example.demoproject.databinding.JokesCategoryBinding
+
 import javax.inject.Inject
 
 class AllJokesAdapter @Inject constructor() :
     RecyclerView.Adapter<AllJokesAdapter.AnyJokesViewHolder>() {
 
-    private var jokesList: MutableList<JokesSecondaryModel> = mutableListOf()
+    private var jokesList: MutableList<JokesMainModel.JokesSecondaryModel> = mutableListOf()
 
     @SuppressLint("NotifyDataSetChanged")
-    fun setJokesList(list: List<JokesSecondaryModel>) {
+    fun setJokesList(list: List<JokesMainModel.JokesSecondaryModel>) {
         this.jokesList.clear()
         this.jokesList.addAll(list)
         notifyDataSetChanged()
@@ -42,10 +43,10 @@ class AllJokesAdapter @Inject constructor() :
     }
 
 
-    class AnyJokesViewHolder(private val binding: JokesCategoryBinding) :
+    class AnyJokesViewHolder(private val binding: com.example.demoproject.databinding.JokesCategoryBinding) :
         RecyclerView.ViewHolder(binding.root) {
 
-        fun bind(item: JokesSecondaryModel) {
+        fun bind(item: JokesMainModel.JokesSecondaryModel) {
 
             val type = item.type
 

@@ -1,6 +1,5 @@
-package com.example.demoproject.ui
+package com.example.demoproject.ui.jokelist
 
-import android.app.Application
 import android.content.Context
 import android.net.ConnectivityManager
 import android.os.Bundle
@@ -14,8 +13,6 @@ import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.findNavController
 import com.example.demoproject.R
 import com.example.demoproject.databinding.FragmentAnyJokesBinding
-import com.example.demoproject.view_model.JokesViewModel
-import com.example.demoproject.view_model.OfflineJokesViewModel
 import dagger.hilt.android.AndroidEntryPoint
 import javax.inject.Inject
 
@@ -25,7 +22,6 @@ class FragmentAnyJokes : Fragment(R.layout.fragment_any_jokes) {
     private lateinit var fragmentAnyJokesBinding: FragmentAnyJokesBinding
     private val TAG: String = "TAG"
     private val jokesViewModel: JokesViewModel by viewModels()
-    private val offlineJokesViewModel: OfflineJokesViewModel by viewModels()
 
     @Inject
     lateinit var allJokesAdapter: AllJokesAdapter
@@ -46,16 +42,13 @@ class FragmentAnyJokes : Fragment(R.layout.fragment_any_jokes) {
 
         val result = isOnline()
 
-        Log.d(TAG, "onViewCreated: $result")
+
+        jokesViewModel.getJokesList().observe(viewLifecycleOwner) {
+        }
 
         if (!result) {
 
-            offlineJokesViewModel.initializeDatabase(requireContext() as Application)
-
-            offlineJokesViewModel.getJokesList().observe(viewLifecycleOwner) {
-            }
-
-            offlineJokesViewModel.getSavedJokes().observe(viewLifecycleOwner) {
+            jokesViewModel.getSavedJokes().observe(viewLifecycleOwner) {
                 Log.d(TAG, "onViewCreated: ${it.size}")
                 if (it != null) {
 
